@@ -1,28 +1,37 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.960
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30626.31
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDL Joystick", "SDLJoy.vcxproj", "{1BB360F0-0069-44B9-B510-88D721F60717}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDLJoy", "DarkEdif\SDLJoy\SDL Joystick.vcxproj", "{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Unicode|x86 = Debug Unicode|x86
 		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
-		Run_Only|x86 = Run_Only|x86
+		Edittime Unicode|x86 = Edittime Unicode|x86
+		Edittime|x86 = Edittime|x86
+		Runtime Unicode|x86 = Runtime Unicode|x86
+		Runtime|x86 = Runtime|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1BB360F0-0069-44B9-B510-88D721F60717}.Debug|x86.ActiveCfg = Debug|Win32
-		{1BB360F0-0069-44B9-B510-88D721F60717}.Debug|x86.Build.0 = Debug|Win32
-		{1BB360F0-0069-44B9-B510-88D721F60717}.Release|x86.ActiveCfg = Release|Win32
-		{1BB360F0-0069-44B9-B510-88D721F60717}.Release|x86.Build.0 = Release|Win32
-		{1BB360F0-0069-44B9-B510-88D721F60717}.Run_Only|x86.ActiveCfg = Run_Only|Win32
-		{1BB360F0-0069-44B9-B510-88D721F60717}.Run_Only|x86.Build.0 = Run_Only|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Debug Unicode|x86.ActiveCfg = Debug Unicode|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Debug Unicode|x86.Build.0 = Debug Unicode|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Debug|x86.ActiveCfg = Debug|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Debug|x86.Build.0 = Debug|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Edittime Unicode|x86.ActiveCfg = Edittime Unicode|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Edittime Unicode|x86.Build.0 = Edittime Unicode|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Edittime|x86.ActiveCfg = Edittime|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Edittime|x86.Build.0 = Edittime|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Runtime Unicode|x86.ActiveCfg = Runtime Unicode|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Runtime Unicode|x86.Build.0 = Runtime Unicode|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Runtime|x86.ActiveCfg = Runtime|Win32
+		{0FC68544-B3E5-4632-9BBA-7A84EADFC38E}.Runtime|x86.Build.0 = Runtime|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BF674338-D1F8-4D31-8CB2-70C74E0B9A58}
+		SolutionGuid = {2DB5DC7B-51A0-4DEA-AF17-234C865C2A9C}
 	EndGlobalSection
 EndGlobal

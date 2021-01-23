@@ -1,6 +1,6 @@
 [OPTIONS]
 Compatibility=1.1 or later
-Compiled file=..\ToInst\Help\SDLJoy.chm
+Compiled file=SDLJoy.chm
 Contents file=sdljoy.hhc
 Default Font=Arial,8,0
 Default Window=Default

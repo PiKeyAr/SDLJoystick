@@ -1,0 +1,231 @@
+{
+	"Identifier": "SDLJ",
+	"Dependencies": "",
+	"UK English": {
+		"About": {
+			"Name": "SDL Joystick object",
+			"Author": "PkR",
+			"Copyright": "Copyright \u00A9 2020 by PkR and Phi",
+			"Comment": "Use the SDL2 Joystick API to interface with game controllers. (DarkEdif b%i, SDL %d.%d.%d)",
+			"Help": "Help/SDLJoy.chm",
+			"URL": ""
+		},
+		"ActionMenu": [
+			[ 0, "Advanced: add controller mapping from file" ]
+		],
+		"ConditionMenu": [
+			[ 0, "Device is connected" ],
+			"---",
+			[ 1, "Button is pressed" ],
+			[ 2, "Button is held down" ],
+			[ 3, "Button is released" ],
+			"---",
+			[ 4, "Any button pressed" ],
+			[ 5, "Any button held down" ],
+			[ 6, "Any button released" ]
+		],
+		"ExpressionMenu": [
+			[ 0, "Number of devices" ],
+			"---",
+			[ 1, "Get axis value" ],
+			[ 3, "Get hat value" ],
+			[ 4, "Get ball X delta" ],
+			[ 5, "Get ball Y delta" ],
+			"---",
+			[ 2, "Get button state" ],
+			[ 12, "Get raw buttons (HEX)" ],
+			[ 13, "Get held button index" ],
+			[ 14, "Get last button pressed" ],
+			[ 15, "Get last button released" ],
+			"---",
+			[ 10, "Get device name" ],
+			[ 11, "Get device GUID" ],
+			"---",
+			[ 6, "Number of axes" ],
+			[ 7, "Number of button" ],
+			[ 8, "Number of hats" ],
+			[ 9, "Number of balls" ]
+		],
+		"Actions": [
+			{
+				"Title": "%o: Add controller mappings from file %0",
+				"Parameters": [
+					[ "Text", "Path of the mapping file" ]
+				]
+			}
+		],
+		"Conditions": [
+			{
+				"Title": "%o : Joystick %0 connected",
+				"Triggered": false,
+				"Parameters": [
+					[ "Integer", "Device ID (0 to 15)" ]
+				]
+			},
+			{
+				"Title": "%o : Joystick %0 button %1 pressed",
+				"Triggered": false,
+				"Parameters": [
+					[ "Integer", "Device ID (0 to 15)" ],
+					[ "Integer", "Button ID (0 to 31)" ]
+				]
+			},
+			{
+				"Title": "%o : Joystick %0 button %1 held down",
+				"Triggered": false,
+				"Parameters": [
+					[ "Integer", "Device ID (0 to 15)" ],
+					[ "Integer", "Button ID (0 to 31)" ]
+				]
+			},
+			{
+				"Title": "%o : Joystick %0 button %1 released",
+				"Triggered": false,
+				"Parameters": [
+					[ "Integer", "Device ID (0 to 15)" ],
+					[ "Integer", "Button ID (0 to 31)" ]
+				]
+			},
+			{
+				"Title": "%o : Joystick %0 any button pressed",
+				"Triggered": false,
+				"Parameters": [
+					[ "Integer", "Device ID (0 to 15)" ]
+				]
+			},
+			{
+				"Title": "%o : Joystick %0 any button held down",
+				"Triggered": false,
+				"Parameters": [
+					[ "Integer", "Device ID (0 to 15)" ]
+				]
+			},
+			{
+				"Title": "%o : Joystick %0 any button released",
+				"Triggered": false,
+				"Parameters": [
+					[ "Integer", "Device ID (0 to 15)" ]
+				]
+			}
+		],
+		"Expressions": [
+			{
+				"Title": "NumDevices(",
+				"Returns": "Integer"
+			},
+			{
+				"Title": "GetAxis(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ],
+					[ "Integer", "Axis ID (0-7)" ]
+				]
+			},
+			{
+				"Title": "GetButtonPressedState(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ],
+					[ "Integer", "Button ID (0-31)" ]
+				]
+			},
+			{
+				"Title": "GetHat(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ],
+					[ "Integer", "Hat ID (0-3)" ]
+				]
+			},
+			{
+				"Title": "GetBallXDelta(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ],
+					[ "Integer", "Ball ID (0-3)" ]
+				]
+			},
+			{
+				"Title": "GetBallYDelta(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ],
+					[ "Integer", "Ball ID (0-3)" ]
+				]
+			},
+			{
+				"Title": "NumAxes(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ]
+				]
+			},
+			{
+				"Title": "NumButtons(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ]
+				]
+			},
+			{
+				"Title": "NumHats(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ]
+				]
+			},
+			{
+				"Title": "NumBalls(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ]
+				]
+			},
+			{
+				"Title": "DeviceName$(",
+				"Returns": "Text",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ]
+				]
+			},
+			{
+				"Title": "DeviceGUID$(",
+				"Returns": "Text",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ]
+				]
+			},
+			{
+				"Title": "GetRawButtonsHex$(",
+				"Returns": "Text",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ]
+				]
+			},
+			{
+				"Title": "GetHeldButtonIndex(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ],
+					[ "Integer", "Button ID (0-31)" ]
+				]
+			},
+			{
+				"Title": "LastButtonPressedIndex(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ]
+				]
+			},
+			{
+				"Title": "LastButtonReleasedIndex(",
+				"Returns": "Integer",
+				"Parameters": [
+					[ "Integer", "Device ID (0-15)" ]
+				]
+			}
+		],
+		"Properties": [
+		]
+	}
+}
