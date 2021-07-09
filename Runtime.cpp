@@ -32,7 +32,7 @@ short WINAPI DLLExport CreateRunObject(LPRDATA rdPtr, LPEDATA edPtr, fpcob cobPt
 	TCHAR rootdir[MAX_PATH];
 	TCHAR ErrorMsg[400];
 	DWORD dwError = 0;
-	//Reset joystick IDs and held buttons
+	// Reset joystick IDs and held buttons
 	for (int i = 0; i < 16; i++)
 	{
 		rdPtr->SDL_Data[i].joy_id = -1;
@@ -43,10 +43,10 @@ short WINAPI DLLExport CreateRunObject(LPRDATA rdPtr, LPEDATA edPtr, fpcob cobPt
 			rdPtr->SDL_Data[i].currentheld[h] = -1;
 		}
 	}
-	//Get path to DLL
+	// Get path to DLL
 	GetCurrentDirectory(MAX_PATH - 1, rootdir);
 	sprintf(SDLPath, "%s\\%s", rootdir, "SDL2.DLL");
-	//Open SDL library
+	// Open SDL library
 	rdPtr->SDL = LoadLibrary(SDLPath);
 	dwError = GetLastError();
 	if (rdPtr->SDL == nullptr)
@@ -59,7 +59,7 @@ short WINAPI DLLExport CreateRunObject(LPRDATA rdPtr, LPEDATA edPtr, fpcob cobPt
 	int init;
 	if ((init = SDL_Init(SDL_INIT_GAMECONTROLLER | SDL_INIT_HAPTIC | SDL_INIT_EVENTS)) != 0)
 	{
-		sprintf(ErrorMsg, "Error initializing SDL: code %d.", SDL_GetError());
+		sprintf(ErrorMsg, "Error initializing SDL: %s.", SDL_GetError());
 		MessageBoxA(nullptr, ErrorMsg,
 			"SDL Init Error", MB_OK | MB_ICONERROR);
 		return 0;
@@ -169,7 +169,7 @@ short WINAPI DLLExport HandleRunObject(LPRDATA rdPtr)
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
-		//Check for device events
+		// Check for device events
 		switch (event.jdevice.type)
 		{
 		default:
@@ -207,23 +207,23 @@ short WINAPI DLLExport HandleRunObject(LPRDATA rdPtr)
 		}
 		}
 	}
-	//Update input
+	// Update input
 	for (int i = 0; i < 16; i++)
 	{
 		if (rdPtr->SDL_Data[i].connected)
 		{
-			//Axes
+			// Axes
 			for (int a = 0; a < rdPtr->SDL_Data[i].num_axes; a++)
 			{
 				rdPtr->SDL_Data[i].axis[a] = SDL_JoystickGetAxis(rdPtr->SDL_Data[i].joystick, a);
 			}
-			//Buttons
+			// Buttons pressed
 			for (int b = 0; b < rdPtr->SDL_Data[i].num_buttons; b++)
 			{
 				rdPtr->SDL_Data[i].held_buttons_last[b] = rdPtr->SDL_Data[i].held_buttons[b];
 				rdPtr->SDL_Data[i].held_buttons[b] = SDL_JoystickGetButton(rdPtr->SDL_Data[i].joystick, b);
 			}
-			//Buttons released
+			// Buttons released
 			for (int b = 0; b < rdPtr->SDL_Data[i].num_buttons; b++)
 			{
 				if (!rdPtr->SDL_Data[i].held_buttons[b])
@@ -238,7 +238,7 @@ short WINAPI DLLExport HandleRunObject(LPRDATA rdPtr)
 					}
 				}
 			}
-			//Buttons held
+			// Buttons held
 			for (int b = 0; b < rdPtr->SDL_Data[i].num_buttons; b++)
 			{
 				if (rdPtr->SDL_Data[i].held_buttons[b])
@@ -254,12 +254,23 @@ short WINAPI DLLExport HandleRunObject(LPRDATA rdPtr)
 					}
 				}
 			}
-			//Hats
+			// Buttons last pressed/released
+			for (int b = 0; b < 32; b++)
+			{
+				if (rdPtr->SDL_Data[i].held_buttons[b])
+				{
+					if (!rdPtr->SDL_Data[i].held_buttons_last[b])
+						rdPtr->SDL_Data[i].lastpressed = b;
+				}
+				else if (rdPtr->SDL_Data[i].held_buttons_last[b])
+					rdPtr->SDL_Data[i].lastreleased = b;
+			}
+			// Hats
 			for (int h = 0; h < rdPtr->SDL_Data[i].num_hats; h++)
 			{
 				rdPtr->SDL_Data[i].hat[h] = SDL_JoystickGetHat(rdPtr->SDL_Data[i].joystick, h);
 			}
-			//Balls
+			// Balls
 			for (int l = 0; l < rdPtr->SDL_Data[i].num_balls; l++)
 			{
 				SDL_JoystickGetBall(rdPtr->SDL_Data[i].joystick, l, &rdPtr->SDL_Data[i].ball_x[l], &rdPtr->SDL_Data[i].ball_y[l]);
